@@ -1,5 +1,6 @@
 package databaseConnection;
 
+import Model.MovieModel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -70,43 +71,48 @@ public class databaseOperations {
     }
 
     public void SelectAll() throws SQLException {
+        MovieModel objMovie = new MovieModel();
         String sql = "Select *from MovieDetails";
 
         try (Connection conn = this.connect();
                 Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql)) {
+            System.out.println("movieId\t\tmovieName\t\tleadActor\t\tleadActress\t\tyearOfRelease\t\tdirectorName");
             while (rs.next()) {
-                System.out.println(
-                        rs.getInt("movieID") + "\t"
-                        + rs.getString("movieName") + "\t\t"
-                        + rs.getString("leadActor") + "\t\t"
-                        + rs.getString("leadActress") + "\t\t"
-                        + rs.getInt("yearOfRelease") + "\t"
-                        + rs.getString("directorName") + "\t\t"
-                );
+                objMovie.setMovieID(rs.getInt("movieID"));
+                objMovie.setMovieName(rs.getString("movieName"));
+                objMovie.setLeadActor(rs.getString("leadActor"));
+                objMovie.setLeadActress(rs.getString("leadActress"));
+                objMovie.setYearOfRelease(rs.getInt("yearOfRelease"));
+                objMovie.setDirectorName(rs.getString("directorName"));
+
+                System.out.println(objMovie.toString());
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-    
-    public void selectMovieByActor(String leadActor) throws SQLException{
-        String sql = "select *from MovieDetails where leadActor = '"+leadActor+"'";
-        
-         try (Connection conn = this.connect();
+
+    public void selectMovieByActor(String leadActor) throws SQLException {
+        MovieModel objMovie = new MovieModel();
+        String sql = "select *from MovieDetails where leadActor = '" + leadActor + "'";
+
+        try (Connection conn = this.connect();
                 Statement st = conn.createStatement();
                 ResultSet rs = st.executeQuery(sql)) {
-             while (rs.next()) {
-                System.out.println(
-                        rs.getInt("movieID") + "\t"
-                        + rs.getString("movieName") + "\t\t"
-                        + rs.getString("leadActor") + "\t\t"
-                        + rs.getString("leadActress") + "\t\t"
-                        + rs.getInt("yearOfRelease") + "\t"
-                        + rs.getString("directorName") + "\t\t"
-                );
+            System.out.println("movieId\t\tmovieName\t\tleadActor\t\tleadActress\t\tyearOfRelease\t\tdirectorName");
+            while (rs.next()) {
+
+                objMovie.setMovieID(rs.getInt("movieID"));
+                objMovie.setMovieName(rs.getString("movieName"));
+                objMovie.setLeadActor(rs.getString("leadActor"));
+                objMovie.setLeadActress(rs.getString("leadActress"));
+                objMovie.setYearOfRelease(rs.getInt("yearOfRelease"));
+                objMovie.setDirectorName(rs.getString("directorName"));
+
+                System.out.println(objMovie.toString());
             }
-         }catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
