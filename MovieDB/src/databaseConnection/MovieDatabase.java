@@ -24,6 +24,7 @@ public class MovieDatabase {
         objOper.insert(1002, "Pailwaan", "Sudeep", "Aakanksha Singh", 2019, "S. Krishna");
         objOper.insert(1003, "Zero", "Shah Rukh Khan", "Katrina Kaif", 2018, "Aanand L. Rai");
         objOper.insert(1004, "PK", "Aamir Khan", "Anushka Sharma", 2014, "Rajkumar Hirani");
+        objOper.insert(1005, "My Autograph", "Sudeep", "Meena", 2006, "Sudeep");
 
         //Retrieving All the data from the MovieDetails Table
         objOper.SelectAll();
