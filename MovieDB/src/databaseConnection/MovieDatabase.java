@@ -11,9 +11,10 @@ public class MovieDatabase {
 
     public static void main(String[] args) throws SQLException {
         
-        Scanner strSC = new Scanner(System.in);
-        Scanner intSC = new Scanner(System.in);
+        Scanner strSC = new Scanner(System.in);            //to scan string
+        Scanner intSC = new Scanner(System.in);             //to scan the integer elements
 
+        //creating an instance of databaseOperations class
         databaseOperations objOper = new databaseOperations();
 
         //creating the database
@@ -22,7 +23,7 @@ public class MovieDatabase {
         //creating the table
         objOper.createNewTable("Movies");
 
-        //Inserting data into MovieDetails Table
+        //Inserting data into Movie Table
         System.out.println("Enter the number of movies you want to insert");
         int numberOfMovies = intSC.nextInt();
         System.out.println("Enter the details in Order\nMovieID MovieName LeadActor LeadActress YearOfRelease DirectorName");

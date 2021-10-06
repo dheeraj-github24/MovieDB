@@ -14,6 +14,7 @@ import java.sql.Statement;
  */
 public class databaseOperations {
 
+    //this method helps us to create the new Database in the desired location of our choice
     public void createNewDatabase(String newDB) throws SQLException {
         String url = "jdbc:sqlite:C:\\Users\\user\\Desktop\\MovieDB\\MovieDB\\" + newDB;
         try {
@@ -24,6 +25,7 @@ public class databaseOperations {
         }
     }
 
+    //this method establishes the connection with the newely created database
     private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:C:\\Users\\user\\Desktop\\MovieDB\\MovieDB\\movies.db";
@@ -36,6 +38,7 @@ public class databaseOperations {
         return conn;
     }
 
+    //this method creates the table in the database
     public void createNewTable(String table) {
 
         String sql = "CREATE TABLE " + table + "(\n"
@@ -54,6 +57,7 @@ public class databaseOperations {
         }
     }
 
+    //this insert method inserts the data into the database
     public void insert(int movieId, String movieName, String leadActor, String leadActress, int yearOfRelease, String directorName) throws SQLException {
         String sql = "Insert into MovieDetails (movieID, movieName, leadActor, leadActress, yearOfRelease, directorName) values(?,?,?,?,?,?)";
 
@@ -70,6 +74,7 @@ public class databaseOperations {
         }
     }
 
+    //this method retrieves all the data from the specified table
     public void SelectAll() throws SQLException {
         MovieModel objMovie = new MovieModel();
         String sql = "Select *from MovieDetails";
@@ -93,6 +98,7 @@ public class databaseOperations {
         }
     }
 
+    //this method retrieves the data based on actor's name
     public void selectMovieByActor(String leadActor) throws SQLException {
         MovieModel objMovie = new MovieModel();
         String sql = "select *from MovieDetails where leadActor = '" + leadActor + "'";

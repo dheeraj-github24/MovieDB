@@ -75,8 +75,8 @@ public class MovieModel {
 
     @Override
     public String toString() {
-        return movieID+"\t\t"+movieName+"\t\t"+leadActor+"\t\t"+leadActress+"\t\t"+yearOfRelease+"\t\t"+directorName;
-        //return "MovieModel{" + "movieID=" + movieID + ", movieName=" + movieName + ", leadActor=" + leadActor + ", leadActress=" + leadActress + ", yearOfRelease=" + yearOfRelease + ", directorName=" + directorName + '}';
+        return movieID + "\t\t" + movieName + "\t\t" + leadActor + "\t\t" + leadActress + "\t\t" + yearOfRelease + "\t\t" + directorName;
+
     }
 
 }
